@@ -11,7 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home', ['title' => '老司機']);
 
+Route::get('/count', function () {
+    $data =[
+        'title' => '老司機' 
+    ];
+
+    return view('count')->with("data",$data);    
+    
 });
+
+Route::get('/', 'ProductsController@index');
+Route::get('/add-to-cart/{product}', "CartController@add")->name('cart.add');
+Route::get('/car/add/{id}', 'UserController@store');
