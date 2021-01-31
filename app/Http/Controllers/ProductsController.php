@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Products as Products;
+use Session;
 class ProductsController extends Controller
 {
     /**
@@ -14,9 +15,18 @@ class ProductsController extends Controller
     public function index()
     {
         $products = Products::all();
+        if (Session::has("totalQty"))
+        {
+            $totalQty = Session::get('totalQty');    
+            $totalQty =$totalQty[0] ;
+           
+        }else{
+            $totalQty =0;
+        }
         $data =[
             'title' => '商品列表' ,
-            'products' => $products
+            'products' => $products,
+            'totalQty' => $totalQty,
         ];
 
         return view('carlist')->with("data",$data);    

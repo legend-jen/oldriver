@@ -12,15 +12,15 @@
 */
 
 
-Route::get('/count', function () {
-    $data =[
-        'title' => '老司機' 
-    ];
 
-    return view('count')->with("data",$data);    
-    
-});
 
-Route::get('/', 'ProductsController@index');
-Route::get('/add-to-cart/{product}', "CartController@add")->name('cart.add');
-Route::get('/car/add/{id}', 'UserController@store');
+    Route::get('/count', 'CartController@index');
+    Route::get('/', 'ProductsController@index');
+    Route::get('/add-to-cart/{product}', "CartController@add")->name('cart.add');
+    Route::get('/add-to-one/{product}', "CartController@increaseByOne")->name('one.add');
+    Route::get('/reduce-to-one/{product}', "CartController@decreaseByOne")->name('one.reduce');
+    Route::get('/delete-to-one/{product}', "CartController@delete")->name('one.delete');
+    Route::get('/car/destroy', 'CartController@destroy');
+    Route::get('/car/add/{id}', 'UserController@store');
+
+

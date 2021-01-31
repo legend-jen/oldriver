@@ -13,5 +13,5 @@
   <a href="/">商品</a></li>
   <li class="breadcrumb-item">
   <a href="/count">購物車</a>
-  </li><span class="badge badge-primary badge-pill">2</span>
+  </li><span class="badge badge-primary badge-pill"><?php echo e($data['totalQty']); ?></span>
 </ol><?php /**PATH /Applications/car/oldriver/resources/views/frontend/layouts/header.blade.php ENDPATH**/ ?>

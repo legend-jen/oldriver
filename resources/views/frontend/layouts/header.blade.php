@@ -12,5 +12,5 @@
   <a href="/">商品</a></li>
   <li class="breadcrumb-item">
   <a href="/count">購物車</a>
-  </li><span class="badge badge-primary badge-pill">2</span>
+  </li><span class="badge badge-primary badge-pill">{{ $data['totalQty'] }}</span>
 </ol>
